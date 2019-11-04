@@ -1,0 +1,101 @@
+macro= ;     /*  enable scripting and comments   */ 
+piwe = ;     /*  make sure implied weights is ON before reading data  */ 
+xread
+'A matrix for demonstration'
+6 48
+
+TAX_1   000000
+TAX_2   111111
+TAX_3   000000
+TAX_4   111111
+TAX_5   000000
+TAX_6   111111
+TAX_7   00000-
+TAX_8   11111-
+TAX_9   0000--
+TAX_10  1111--
+TAX_11  0000--
+TAX_12  1111--
+TAX_13  000---
+TAX_14  111---
+TAX_15  000---
+TAX_16  111---
+TAX_17  00----
+TAX_18  11----
+TAX_19  00----
+TAX_20  11----
+TAX_21  00----
+TAX_22  11----
+TAX_23  00----
+TAX_24  11----
+TAX_25  0-----
+TAX_26  1-----
+TAX_27  0-----
+TAX_28  1-----
+TAX_29  0-----
+TAX_30  1-----
+TAX_31  0-----
+TAX_32  1-----
+TAX_33  0-----
+TAX_34  1-----
+TAX_35  0-----
+TAX_36  1-----
+TAX_37  0-----
+TAX_38  1-----
+TAX_39  0-----
+TAX_40  1-----
+TAX_41  0-----
+TAX_42  1-----
+TAX_43  0-----
+TAX_44  1-----
+TAX_45  0-----
+TAX_46  1-----
+TAX_47  0-----
+TAX_48  1-----
+;
+
+lquote [ ;     /*  enable ASCII conversions in quote command */ 
+quote 
+This matrix has 6 characters, with the following percentages
+of non_missing entries: 
+
+    Char. 0    0 &37
+    Char. 1    50 &37 
+    Char. 2    33.333 &37 
+    Char. 3    25 &37 
+    Char. 4    16.666 &37 
+    Char. 5    12.5 &37 
+
+Note that when extrapolating with 100&37  and no limit
+on the proportion, then the cost of adding a step to char 1
+is about the same as the cost of adding a step to TWICE that
+number of steps in char 0, the cost of adding a step to char
+2 is about the same as the cost of adding a step to THREE
+times that number of steps in char 0, and so on. 
+;
+
+xpiwe ( *1 < 1000 / 6 ;   /** set k's  ***/ 
+piwe & . ;     /**  show step-costs for all characters  ***/ 
+
+quote
+
+Note below that (when a user-defined weighting function is in
+effect), the correspondence is more exact.  In the case of the
+present matrix, no interpolation is required (because the
+proportions of non-mising vs. missing entries are exact
+numbers).  Other cases, however, may require interpolating the
+weighting function defined by the user (which is necessarily
+approximmate).
+;
+
+
+var : dawts[root] ;            /**  define a weighting function,  */ 
+set dawts impwtlist ;          /*   but similar to the default    */
+piwe [ 'dawts[0-listsize]' ;
+
+          /**  now, show step-costs for all chars. ***/ 
+piwe & . ;
+
+if ( !windows ) view ; end 
+
+proc/;
