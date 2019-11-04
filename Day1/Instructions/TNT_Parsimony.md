@@ -1,8 +1,9 @@
 % Linux, Alignment and Parsimony
 % Jesus Martinez-Gomez
 % `s c(current_date)`
-% This worksheet will walk you through some basic in Linux, aligning phylogenetic sequences with the program MAFT then inferring a phylogeny using the program "Tree analysis New Technology" (TNT). It also contains Homework question at the end. 
+% 
 
+This worksheet will walk you through some basic in Linux, aligning phylogenetic sequences with the program MAFT then inferring a phylogeny using the program "Tree analysis New Technology" (TNT). The goal of this workshop is to be a resource in case you ever need to run these types of analysis again. There are also homework question at the end. 
 # Linux Basic
 ___
 Linux is a operating system that phylogenetic programs are created with. The Mac operating system is Linux based meaning that it runs Linux. The Windows operatining system is now Linux based, therefore we need to install Linux. These 
@@ -50,8 +51,11 @@ We are now in testFolder! If we type 'ls', we will notice that there is nothing.
 ```python
 cd ..
 ```
-Two periods after cd moves you up one step in directoryes. These instructions are super basic but will get you started. This is a link to a [Linux cheat sheet](https://confluence.cornell.edu/display/CNF/Linux+CheatSheet). If you want to learn more Linux google it. 
-
+Two periods after cd moves you up one step in directores. Now lets delete the testFolder. 
+```python
+rmdir testFolder
+```
+These instructions are super basic but will get you started. This is a link to a [Linux cheat sheet](https://confluence.cornell.edu/display/CNF/Linux+CheatSheet). If you want to learn more Linux google it. 
 
 # Download the GitHub Repository
 ___
@@ -66,43 +70,72 @@ git clone https://github.com/Jesusthebotanist/PLBIO6401_EcologyEvolution_Module_
 ``` 
 Using a finder check to see if you have successfull download the folder. A folder called "PLBIO6401_EcologyEvolution_Module_2019", should now exist on your computer. 
 
-# Getting Setting UP
+# Make a New Project Directory
 ___
-Installing and getting programs to work can be a challenge. Bioinformaticians spend a great deal of time simply getting a program to run. These are general instructions and with the help of the instructors we will get the program running on your machine. But an equally important aspect is keeping yourself organized. There is nothing worst than having 8 different files all names "Final1", "Final2_forReal", "Final3_for_real". To avoid this we will create a new folder where you will do all your analysis. **When you do your Homework name the folder something different**.  
+We already made a new directory in the Linux tutorial (we deleted it though). However everytime you are are starting is it a good idea to generate a new directory and put everything you need (data/ programs)inside that directory. In the following bit of code we will make a new folder called "My_first_Parsimony_Analysis" inside of the folder "Day1". We will then copy and paste a two programs and a data file into this folder. **When you do your Homework name folder something different**. 
 
+## Mac User
 ```python
-cd PLBIO6401_EcologyEvolution_Module_2019/Day1
-mkdir My_first_Parsimony_Analysis
-cd My_first_Parsimony_Analysis
+cd PLBIO6401_EcologyEvolution_Module_2019
+mkdir Day1/My_first_Parsimony_Analysis
+cp Day1/programs/mac/mafft-7.450-signed.pkg Day1/My_first_Parsimony_Analysis
+cp Day1/programs/mac/tnt-mac.command Day1/My_first_Parsimony_Analysis
+cp Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas Day1/My_first_Parsimony_Analysis
+cd Day1/My_first_Parsimony_Analysis
+```
+
+## Windows User
+```python
+cd PLBIO6401_EcologyEvolution_Module_2019
+mkdir Day1/My_first_Parsimony_Analysis
+cp Day1/programs/windows/mafft_7.450-1_amd64.deb Day1/My_first_Parsimony_Analysis
+cp Day1/programs/windows/tnt-linux
+cp Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas Day1/My_first_Parsimony_Analysis
+cd Day1/My_first_Parsimony_Analysis
 ```
 Next we are going to make copies of the programs and data that you will be using and placing theminto this folder.  
 
-## Mac User
-1. Using Finder Navigate to PLBIO6401_EcologyEvolution_Module_2019
-2. Copy and paste the following programs into the folder My_first_Parsimony_Analysis. 
-	* day1/programs/mafft-7.450-gcc_fc6.x86_64.rpm
-	* day1/programs/tnt-mac.command
-3. Copy and paste the file, "Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas" into the folder My_first_Parsimony_Analysis
-
-## Windows User
-1. Using Finder Navigate to PLBIO6401_EcologyEvolution_Module_2019.  
-2. Copy and paste the following programs into the folder My_first_Parsimony_Analysis. 
-	* day1/programs/mafft-7.450-gcc_fc6.x86_64.rpm
-	* day1/programs/tnt-linux
-3. Copy and paste the file, "Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas" into the folder My_first_Parsimony_Analysis
-
 # Alignment with MAFFT
 ___
-## Instillation
+We will be using the program MAFFT to run a basic alignment.
+
+## Mac Instillation
+Using finder simply double click on the file called, "mafft-7.450-signed.pkg". Then delete the file
+```python
+rm mafft_7.450-1_amd64.deb
+
+```
+
+## Windows Instillation
+```pyton
+sudo dpkg -i mafft_7.450-1_amd64.deb
+rm mafft_7.450-1_amd64.deb
+```
 
 ## Running a Basic Alignment
+```python
+mafft ruhf_32_by_5000_unaligned.fas > ruhf_32_by_5000_aligned.fas 
+```
+
+## Convert Aligned File from FASTA format to TNT format 
+TNT takes a very sepcial file time called a TNT, visit the TNT website if you want to learn more. Kevin Nixon has an online converter that you can access here (TNT CONVERTER)[http://pwww.plantsystematics.org/plbio4400_2019/]. Go to the webiste and scrolled down to the section that say **UPLOAD FASTA FILE HERE FOR TRANSLATION TO TNT FORMAT** Upload your file and download a TNT file. 
+
 
 # TNT - Parsimony
 ___
 We will be inferring phylogenies using the program "Tree analysis New Technology" (TNT). This is a command line program, which means in order to run it you will use the "Terminal" app in Mac/ Linux or the "Command Prompt" app in Windows. It is developed in part by Kevin Nixon a Plant Biology faculty! The following is a worksheet that you can follow to perform a basic parsimony analysis in TNT. 
 
-## Installation
+## Mac Instillation
+```pyton
+sudo chmod +x tnt-linux
+./tnt-linux
+```
 
+## Windows Instillation
+```pyton
+sudo chmod +x tnt-mac
+./tnt-mac
+```
 
 ## Introduction to TNT
 As mentioned, TNT is a command line program meaning all inputs will be through the command line (you'll feel like a hacker). An alternative is to write script. A script is a simple text file that has all the instructions (aka commands) you want a program to run. We will not go through how to write a script, instead we will enter the commands one by one into the command line. This section will introduce you to some TNT basic and tips. 
@@ -137,7 +170,7 @@ The next step is to read in our data. Two important things to note:
 1. Make sure your input file is in the correct format. TNT takes a special file a .tnt. Consult the TNT website for more detail on how to specify this file. 
 2. Make sure your input file is in the same folder as the tnt.command (Mac) or tnt.exc (Windows)file. It should be if your followed "Download TNT" instructions above. 
 ```python
-p accD_aligned.tnt;
+p ruhf_32_by_5000_aligned.tnt;
 ```
 
 TNT searches through tree space to find the most parsimonious tree or set of most parsimonious trees. TNT searches through many many trees most of which are not good (aka have a good parsimony score). Therefore we don't want to save every single tree, instead we will use the "hold" command to save the top 1000 trees. 
@@ -157,11 +190,18 @@ This analysis may take a little while, and you will see some fun stuff pop up on
 tp;
 ```
 
+Now we will 
+```python
+resample replications 100;
+```
+
+
 ### Exporting and Quiting
 Now the we have successfully completed an analysis we may want to export our best tree into a file for safe keeping. First we will use the command "taxname=", TNT changes our tip name during this analysis, "taxnames=" changes them back. Next we use the "export" command to generate a .nex file, which stand for Nexus. A Nexus file is a standard phylogenetic file. 
 ```python
 taxname=;
-export - myPhylogeny.nex;
+ttags );
+export - ruhf_32_parsimony.nex;
 ```
 
 Double check to see if a file called myPhylogeny.nex was created. Finally we can exit out of TNT using the "quit" command
@@ -174,17 +214,22 @@ Open the myLog.txt file again (if you already have it open, close it first), it 
 A final note. If you rerun the above code it will overwrite any files that exist on your computer. If you are running a different analysis make sure you change the names of the .log file and the .nex file 
 
 ## Viewing your Phylogeny
-You should know have a .nex file in your folder. This .nex file contains the phylogeny you just infered and can be view in a tree viewer. There is a free Browser based tree viewer called (IcyTree)[https://icytree.org/]. Just drag and drop your .nex file into the browser
+You should know have a .nex file in your folder. This .nex file contains the phylogeny you just infered and can be view in a tree viewer. To view your phylogeny download [FigTree](http://tree.bio.ed.ac.uk/software/figtree/).
 
-# Homework Quesitons!
+
+
+# Homework Questions:
 ___
 
 ## Homework Question 1:
 
 ## Homework Question 2: 
 
-## Homework Question 3. 
+## Homework Question 3: 
 
-# References
-___
+## Homework Question 4: 
+Rerun through the worksheet using a different different from the "Ruhfel_unaligned_fasta" folder. Do everything a side a new directory named, [YourLastName_GeneName]. Email your compressed folder with and aligned sequence and a Parsimony phylogeny. 
+
+
+
 
