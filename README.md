@@ -2,13 +2,20 @@
 This is the repository contains the material for this four day module
 
 * Day 1: Intro To Linux, Alignment and Parsimony
+Jesus Martinez-Gomez
+Email: jm2722@cornell.edu
 
 * Day 2: Maximum Likliehood & Baysien Phylogenetics
+Jacob Landis
+Email: jbl256@cornell.edu
 
 * Day 3: Maximum Likliehood & Baysien Phylogenetics
+Jacob Landis
+Email: jbl256@cornell.edu
 
 * Day 4: Intro to Ecology and Maxent
-
+Eugenio Valderrama 
+Email: ev243@cornell.edu 
 
 ## Updating the latest version on GitHub 
 If you followed the instruction from Day1, you can easily download the latest version of the GitHub by following these instructions. 
