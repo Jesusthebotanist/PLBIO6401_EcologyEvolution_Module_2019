@@ -23,7 +23,7 @@ git pull origin master
 
 ## Mac Users
 1. Open Terminal
-2. 
+2. Type the following
 ```
 cd home/<username>/PLBIO6401_EcologyEvolution_Module_2019
 git pull origin master
