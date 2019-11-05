@@ -253,7 +253,12 @@ pandoc Day1_Worksheet_LinuxAlignmentParsimony.md \
 # Homework Questions:
 ___
 ## Homework Question 1:
+In less then 3 sentences explain why a human hand and a Gorrilla hand look alike? 
+
+
 ## Homework Question 2: 
+
+
 ## Homework Question 3: 
 ## Homework Question 4: 
-Rerun through the worksheet using a different different from the "Ruhfel_unaligned_fasta" folder. Do everything a side a new directory named, [YourLastName_GeneName]. Email your compressed folder with and aligned sequence and a Parsimony phylogeny. 
+Rerun through the worksheet using a different different from the "Ruhfel_unaligned_fasta" folder. Do everything inside a new directory named, [YourLastName_GeneName]. Email your compressed folder with and aligned sequence and a parsimony phylogeny to me. 
