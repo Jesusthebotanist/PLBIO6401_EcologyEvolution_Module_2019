@@ -1,8 +1,13 @@
----
-header-includes:
- - \usepackage{fvextra}
- - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
----
+
+
+
+
+
+
+
+
+
+
 
 # Linux Basic
 ___
@@ -16,7 +21,7 @@ For Window users we are going to install a Linux virtual machine. In essence thi
 
 1. In the Windows search bar search for 'Windows PowerShell', right click "Run as administrator"
 2. Copy and paste the following into the Window Powershell
-```Python
+```python
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux 
 ```
 3. You will be prompted to restart your computer, press "Y", to do so. 
@@ -27,7 +32,9 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 **Note** Ubuntu is a computer-in-a-computer therefore if you want to see any files using a finder you need to go to this location. 
 ```python
-C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState
+C:\Users\<username>\AppData\Local\Packages\
+CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\
+LocalState
 ```
 
 ## Basic Linux Command
@@ -43,10 +50,10 @@ ls
 ```
 'ls' stands for 'list'. This command will list all the files and folders in your current location. Mac users will notice  a lot of files, this because Linux is bulit into your computer and has access to all your files. Windows users will have nothing, this is because you are running a virtual machine (computer-in-a-computer), which you just installed so you don't have any files. Lets make a new directory. 
 ```python
-mkdir testFolder
+mkdir testFolder \
 ls
 ```
-The function "mkdir" is short for make directory. After you typed ls you will see that you have a new folder called testFolder (because you just made it). Now lets move into that new folder. 
+The function "mkdir" is short for make directory. After you typed ls you will see that you have a new folder called testFolder (because you just made it). Additionally you'll notice a backslash "\", in Linux this means a line break, this way you can type multiple lines into your termina. Now lets move into that new folder. 
 ```python
 cd testFolder
 ```
@@ -71,7 +78,9 @@ All the material for this course are found on a Github repository, this is essen
 ``` 
 2. The following will download the repository 
 ```python
-git clone https://github.com/Jesusthebotanist/PLBIO6401_EcologyEvolution_Module_2019.git
+git clone \
+https://github.com/Jesusthebotanist/
+PLBIO6401_EcologyEvolution_Module_2019.git
 ``` 
 Type 'ls', you should see your new folder. You can further convince yourself that the new folder is there by navigating to it using a finder. 
 
@@ -88,20 +97,36 @@ In this section we will make a new project directory. Every time you start a new
 ## Mac User
 ```python
 cd PLBIO6401_EcologyEvolution_Module_2019
+
 mkdir Day1/My_first_Parsimony_Analysis
-cp Day1/programs/mac/mafft-7.450-signed.pkg Day1/My_first_Parsimony_Analysis
-cp Day1/programs/mac/tnt-mac.command Day1/My_first_Parsimony_Analysis
-cp Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas Day1/My_first_Parsimony_Analysis
+
+cp Day1/programs/mac/mafft-7.450-signed.pkg \
+Day1/My_first_Parsimony_Analysis
+
+cp Day1/programs/mac/tnt-mac.command \
+Day1/My_first_Parsimony_Analysis
+
+cp Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas \
+Day1/My_first_Parsimony_Analysis
+
 cd Day1/My_first_Parsimony_Analysis
 ```
 
 ## Windows User
 ```python
 cd PLBIO6401_EcologyEvolution_Module_2019
+
 mkdir Day1/My_first_Parsimony_Analysis
-cp Day1/programs/windows/mafft_7.450-1_amd64.deb Day1/My_first_Parsimony_Analysis
-cp Day1/programs/windows/tnt-linux
-cp Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas Day1/My_first_Parsimony_Analysis
+
+cp Day1/programs/windows/mafft_7.450-1_amd64.deb \
+Day1/My_first_Parsimony_Analysis
+
+cp Day1/programs/windows/tnt-linux \
+Day1/My_first_Parsimony_Analysis
+
+cp Ruhfel_unaligned_fasta/ruhf_32_by_5000_unaligned.fas \
+Day1/My_first_Parsimony_Analysis
+
 cd Day1/My_first_Parsimony_Analysis
 ```
 
@@ -116,7 +141,7 @@ rm mafft_7.450-1_amd64.deb
 ```
 
 ## Windows Instillation
-```pyton
+```python
 sudo dpkg -i mafft_7.450-1_amd64.deb
 rm mafft_7.450-1_amd64.deb
 ```
@@ -124,7 +149,8 @@ rm mafft_7.450-1_amd64.deb
 ## Running a Basic Alignment
 If you have successfully aligned the data you should be able to run MAFFT by simplying typing in 'mafft'. To perform a basic alignment we type 'mafft' followed by our input data. Our input data is the unaligned 32 tip tree. The '>' redirects the output of mafft, into a new file. We name the new file. 
 ```python
-mafft ruhf_32_by_5000_unaligned.fas > ruhf_32_by_5000_aligned.fas 
+mafft ruhf_32_by_5000_unaligned.fas \
+> ruhf_32_by_5000_aligned.fas 
 ```
 
 ## Convert Aligned File from FASTA format to TNT format 
@@ -139,7 +165,9 @@ Our newly aligned file is in FASTA format (.fas, .fasta). TNT does not take in t
 
 **A Note For Windows Users** You might have a hard time finding your folder. This is because Ubuntu is a computer-in-a-computer therefore if you want to see any files using a finder you need to go to this location. 
 ```python
-C:\Users\<username>\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState
+C:\Users\<username>\AppData\Local\Packages\
+CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\
+LocalState
 ```
 
 # Parsimony with TNT
@@ -147,13 +175,13 @@ ___
 We will be inferring phylogenies using the program "Tree analysis using New Technology" (TNT). This is a command line program, which means in order to run it you will use the "Terminal" app in Mac/ Linux or the "Command Prompt" app in Windows. It is developed in part by Kevin Nixon a Plant Biology faculty! The following is a worksheet that you can follow to perform a basic parsimony analysis in TNT. To learn more about TNT check out there website (**LINK**)[http://www.lillo.org.ar/phylogeny/tnt/]
 
 ## Mac Instillation
-```pyton
-sudo chmod +x tnt-linux
-./tnt-linux
+```python
+sudo chmod +x tnt-mac
+./tnt-mac
 ```
 
 ## Windows Instillation
-```pyton
+```python
 sudo chmod +x tnt-mac
 ./tnt-mac
 ```
@@ -165,7 +193,7 @@ help;
 ```
 
 The "help" command above will give you a list of all the commands that TNT can run. The "help" command can also be used to find information about other commands. For example we will be using the "mult" command later on in this worksheet. To find out more information about "mult". Type the following. 
-```pytbon
+```python
 help mult;
 ```
 If you are ever unsure about what a particular command does always use "help"
@@ -233,8 +261,23 @@ You should now have a .nex file in your folder. This .nex file contains the phyl
 2. Open ruhf_32_parsimony.nex in FigTree, it should propt you to name somthing. Name it 'Bootstrap'. Once you have a phylogeny should appear
 3. Click the drop down arrow on 'Node Labels' on the left hand tool par. Then click on the drop down arrow for 'Display:' you should see 'Bootstrap' click on that. 
 
+# Homework Questions:
+___
+The following is the homework assignment. For question 1 and 2, please write your answers in a word document. For question 3 email me a folder with all your files. **Email: jm2722@cornell.edu**
+
+## Homework Question 1:
+In less then 3 sentences explain why a human hand and a Gorrilla hand look alike? 
+
+## Homework Question 2: 
+Which of the four trees below depicts a different pattern of relationships than the others? In less than 3 sentences explain why using at least three words from the "Tree Thinking Reading Trees" section of lecture. 
+
+![alt text](./images/HomeworkQuestion2.png  "Homework2")
+
+## Homework Question 3: 
+Rerun through the worksheet using sa different different from the "Ruhfel_unaligned_fasta" folder. Do everything inside a new directory named, [YourLastName_GeneName]. 
+
 # About This Doucment
-This document was written in markdown and knitted into a PDF with Pandoc using the following code
+This document was written in markdown and knitted into a PDF with Pandoc, using the following code. 
 ```python
 pandoc Day1_Worksheet_LinuxAlignmentParsimony.md \
 -f gfm \
@@ -242,23 +285,18 @@ pandoc Day1_Worksheet_LinuxAlignmentParsimony.md \
 --toc \
 -V toc-title:"Table of Contents" \
 -V linkcolor:blue \
--M title="Linux, Alignment and Parsimony" \
+-M title="Day 1: Linux, Alignment and Parsimony" \
 -M author="Jesus Martinez-Gomez" \
--M abstract="This worksheet will walk you through some Linux basics, alignment and parsimony tree inference. These are are step-by-step instruction intended for someone who does not have familiarity with Linux of phylogenetics as such follow them as closely as you can. If do know a little feel free to follow them at your leasuire as long as you manage to answer the homeworks at the end." \
 -M date="November 4th, 2019" \
+-M abstract="This worksheet will walk you through some \
+Linux basics, alignment and parsimony tree inference. \
+These are are step-by-step instruction intended for \
+someone who does not have familiarity with Linux or \
+phylogenetics. As such follow them as closely as you \
+can. However, if do have familiarity, follow the \
+instructions at your leasuire. Make sure you answer \
+the homeworks at the end." \
+--extract-media ./images \
 --highlight-style tango \
 -o Day1_Worksheet_LinuxAlignmentParsimony.pdf
 ```
-
-# Homework Questions:
-___
-## Homework Question 1:
-In less then 3 sentences explain why a human hand and a Gorrilla hand look alike? 
-
-
-## Homework Question 2: 
-
-
-## Homework Question 3: 
-## Homework Question 4: 
-Rerun through the worksheet using a different different from the "Ruhfel_unaligned_fasta" folder. Do everything inside a new directory named, [YourLastName_GeneName]. Email your compressed folder with and aligned sequence and a parsimony phylogeny to me. 
