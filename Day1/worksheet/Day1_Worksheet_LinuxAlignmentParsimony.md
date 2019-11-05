@@ -1,7 +1,12 @@
+---
+header-includes:
+ - \usepackage{fvextra}
+ - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+---
+
 # Linux Basic
 ___
 Linux is a operating system (OS) that many phylogenetic programs use. The Mac OS is Linux based, which means it requires minimal instillation. On the other hand the Windows OS is not, therefore we need to install Linux.  
-
 ## Mac Instillation Instructions
 1. Look for the Terminal.app using your finder. It should be in the following location: Applications/Utilities/Terminal.app
 2. Be moral support for your classmates with Windows because its complicated. 
@@ -232,7 +237,7 @@ You should now have a .nex file in your folder. This .nex file contains the phyl
 This document was written in markdown and knitted into a PDF with Pandoc using the following code
 ```python
 pandoc Day1_Worksheet_LinuxAlignmentParsimony.md \
--f gfm\
+-f gfm \
 -t latex \
 --toc \
 -V toc-title:"Table of Contents" \
