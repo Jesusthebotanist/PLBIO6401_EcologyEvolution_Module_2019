@@ -1,11 +1,3 @@
-% Linux, Alignment and Parsimony
-% Jesus Martinez-Gomez
-% `s c(current_date)`
-% 
-
-This worksheet will walk you through some Linux basics, alignment and parsimony tree inference. These are are step-by-step instruction intended for someone who does not have familiarity with Linux of phylogenetics as such follow them as closely as you can. If do know a little feel free to follow them at your leasuire as long as you manage to answer the homeworks at the end. 
-
-
 # Linux Basic
 ___
 Linux is a operating system (OS) that many phylogenetic programs use. The Mac OS is Linux based, which means it requires minimal instillation. On the other hand the Windows OS is not, therefore we need to install Linux.  
@@ -229,26 +221,34 @@ quit
 
 Open the ruhf_32_by_5000_log.txt file again (if you already have it open, close it first), it should now be full of all the commands you inputed and the TNT output! Yay phylogenies! A final note. If you rerun the above code it will overwrite any files that exist on your computer. If you are running a different analysis make sure you change the names of the .log file and the .nex file 
 
-# Viewing your Phylogeny
+# Viewing your Phylogeny with FigTree
 You should now have a .nex file in your folder. This .nex file contains the phylogeny you just inferred and can be viewed in a tree viewer. To view your phylogeny download [**FigTree**](http://tree.bio.ed.ac.uk/software/figtree/).
 
 1. Open Figtree
 2. Open ruhf_32_parsimony.nex in FigTree, it should propt you to name somthing. Name it 'Bootstrap'. Once you have a phylogeny should appear
 3. Click the drop down arrow on 'Node Labels' on the left hand tool par. Then click on the drop down arrow for 'Display:' you should see 'Bootstrap' click on that. 
 
+# About This Doucment
+This document was written in markdown and knitted into a PDF with Pandoc using the following code
+```python
+pandoc Day1_Worksheet_LinuxAlignmentParsimony.md \
+-f gfm\
+-t latex \
+--toc \
+-V toc-title:"Table of Contents" \
+-V linkcolor:blue \
+-M title="Linux, Alignment and Parsimony" \
+-M author="Jesus Martinez-Gomez" \
+-M abstract="This worksheet will walk you through some Linux basics, alignment and parsimony tree inference. These are are step-by-step instruction intended for someone who does not have familiarity with Linux of phylogenetics as such follow them as closely as you can. If do know a little feel free to follow them at your leasuire as long as you manage to answer the homeworks at the end." \
+-M date="November 4th, 2019" \
+--highlight-style tango \
+-o Day1_Worksheet_LinuxAlignmentParsimony.pdf
+```
 
 # Homework Questions:
 ___
-
 ## Homework Question 1:
-
 ## Homework Question 2: 
-
 ## Homework Question 3: 
-
 ## Homework Question 4: 
 Rerun through the worksheet using a different different from the "Ruhfel_unaligned_fasta" folder. Do everything a side a new directory named, [YourLastName_GeneName]. Email your compressed folder with and aligned sequence and a Parsimony phylogeny. 
-
-
-
-
