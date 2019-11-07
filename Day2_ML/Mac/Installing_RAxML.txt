@@ -1,0 +1,23 @@
+RAxML-NG
+
+thru Git
+git clone --recursive https://github.com/amkozlov/raxml-ng
+cd raxml-ng
+mkdir build && cd build
+cmake ..
+make
+
+run executable from ~/bin/raxm-ng
+
+
+thru Conda
+First install conda
+for mac:
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+sh Miniconda3-latest-MacOSX-x86_64.sh
+Then add channels for bioconda
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+Then install with: conda install raxml
+then raxmlHPC -h
