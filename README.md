@@ -18,13 +18,13 @@ Eugenio Valderrama
 Email: ev243@cornell.edu 
 
 ## Updating the latest version on GitHub 
-If you followed the instruction from Day1, you can easily download the latest version of the GitHub by following these instructions. 
+If you followed the instruction from Day1 worksheet, (Mac users should have downloaded this folder on to their desktops and Windows/Ubuntu downloaded them in their default directory) you can download the latest version of the GitHub by following these instructions. 
 
 ## Windows Users
 1. Open Ubuntu
 2. Type the Following
 ```
-cd home/<username>/PLBIO6401_EcologyEvolution_Module_2019
+cd PLBIO6401_EcologyEvolution_Module_2019
 git pull origin master
 ```
 
@@ -32,6 +32,6 @@ git pull origin master
 1. Open Terminal
 2. Type the following
 ```
-cd home/<username>/PLBIO6401_EcologyEvolution_Module_2019
+cd Desktop/PLBIO6401_EcologyEvolution_Module_2019
 git pull origin master
 ```
