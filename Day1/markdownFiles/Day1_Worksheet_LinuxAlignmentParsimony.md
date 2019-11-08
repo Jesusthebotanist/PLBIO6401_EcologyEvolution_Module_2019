@@ -261,8 +261,8 @@ Which of the four trees below depicts a different pattern of relationships than 
 
 ![alt text](./images/HomeworkQuestion2.png  "Homework2")
 
-## Homework Question 3: 
-Rerun through the worksheet using sa different different from the "Ruhfel_unaligned_fasta" folder. Do everything inside a new directory named, [YourLastName_GeneName]. 
+## Homework Question 3: **CORRECTION: NOV 8TH 2019**
+Rerun through the worksheet using a different gene file from the "Ruhfel_unaligned_fasta" folder. Do everything inside a new directory named, [YourLastName_GeneName]. Note for Jacobs lab you will be infering a maximum likelihood phylogeny and baysian phylogeny using this same gene
 
 # About This Doucment
 This document was written in markdown and knitted into a PDF with Pandoc, using the following code. 
