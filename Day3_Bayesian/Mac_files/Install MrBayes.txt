@@ -1,0 +1,11 @@
+#with homebrew
+brew install mrbayes
+
+#via Github
+git clone --depth=1 https://github.com/NBISweden/MrBayes.git
+    cd MrBayes
+    ./configure
+    make && sudo make install
+
+
+#PCs have a precompiled executable in the programs folder
